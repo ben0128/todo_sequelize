@@ -32,13 +32,12 @@ router.get('/:id/edit', (req, res) => {
   const UserId = req.user.id;
   const id = req.params.id
   return Todo.findOne({ where: { id, UserId } })
-    .then((todo) => res.render("edit", { todo }))
+    .then((todo) => res.render("edit", { todo: todo.toJSON() }))
     .catch((error) => console.log(error));
 })
 
 //更新一筆todo
 router.put('/:id',(req, res) => {
-  console.log('23232323')
   const UserId = req.user.id;
   const id = req.params.id
   const { name, isDone } = req.body
