@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const Todo = require("../../models/todo");
+const db = require("../../models");
+const Todo = db.Todo
 
 router.get("/:id", (req, res) => {
   const id = req.params.id;

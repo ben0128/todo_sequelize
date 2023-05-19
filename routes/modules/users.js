@@ -1,9 +1,8 @@
 const express = require("express");
 const router = express.Router();
-// const User = require("../../models/user");
+const db = require("../../models");
 const passport = require("passport");
 const bcryptUtil = require("../../utils/bcryptUtil")
-const db = require("../../models");
 const User = db.User;
 
 router.get("/login", (req, res) => {
@@ -51,7 +50,9 @@ router.post("/register", (req, res) => {
 });
 
 router.get("/logout", (req, res) => {
-  res.send("logout");
+  req.logout();
+  req.flash("success_msg", "你已經成功登出。");
+  res.redirect("/users/login");
 });
 
 module.exports = router;
