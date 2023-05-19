@@ -27,6 +27,7 @@ app.use((req, res, next) => {
   res.locals.warning_msg = req.flash("warning_msg"); // 設定 warning_msg 訊息
   next();
 });
+
 app.use(routes)
 
 app.listen(PORT, () => {
