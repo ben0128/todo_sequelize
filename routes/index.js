@@ -3,8 +3,8 @@ const router = express.Router(); // 準備引入路由模組
 
 const home = require("./modules/home"); // 引入 home 模組程式碼
 const todos = require("./modules/todos");
-const users = require("./modules/users");
 const auth = require("./modules/auth");
+const users = require("./modules/users")
 
 const { authenticator } = require("../middleware/auth"); // 進到路由之前需要先通過auth檢查是否登入
 
